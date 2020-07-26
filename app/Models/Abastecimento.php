@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\User;
 use Illuminate\Database\Eloquent\Model;
 
 class Abastecimento extends Model
@@ -30,5 +31,15 @@ class Abastecimento extends Model
             'posto_abastecido' => 'required',
             'tipo_combustivel' => 'required',
         ];
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
+
+    public function veiculo()
+    {
+        return $this->belongsTo(Veiculo::class, 'veiculo_id', 'id');
     }
 }
