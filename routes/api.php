@@ -1,8 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
-
 Route::group(['prefix' => 'auth'], function () {
     Route::post('login', 'api\AuthApiController@login');
     Route::post('signup', 'api\AuthApiController@signup');
@@ -12,3 +9,6 @@ Route::group(['prefix' => 'auth'], function () {
         Route::get('user', 'api\AuthApiController@user');
     });
 });
+
+Route::apiResource('veiculos', 'api\VeiculoApiController');
+Route::apiResource('abastecimento', 'api\AbastecimentoApiController');
